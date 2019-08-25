@@ -1,0 +1,15 @@
+<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCui5mpEtzKoAn4gGqIhE4b3E9SwBiKdXI",
+      authDomain: "business-test-45614.firebaseapp.com",
+      databaseURL: "https://business-test-45614.firebaseio.com",
+      projectId: "business-test-45614",
+      storageBucket: "",
+      messagingSenderId: "130640538454",
+      appId: "1:130640538454:web:caf0310d6aa043c4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>

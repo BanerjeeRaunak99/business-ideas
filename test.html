@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-database.js"></script>
+</head>
+<body>
+ 
+    
+
+
+
+
+
+
+ <script>
+ var config = {
+    apiKey: "AIzaSyAsnsRrv6SqqlOr8GLIfCFruCCNS7GNqhc",
+    authDomain: "business-idea-c71fa.firebaseapp.com",
+    databaseURL: "https://business-idea-c71fa.firebaseio.com",
+    projectId: "business-idea-c71fa",
+    storageBucket: "",
+    messagingSenderId: "596416227592",
+    appId: "1:596416227592:web:58620c9d1def3f03"
+    };
+    firebase.initializeApp(config);
+    var db = firebase.database();
+    var ref1 = db.ref("/question/question1");
+    var ref2 = db.ref("/question/question2");
+    var ref3 = db.ref("/question/question3");
+    var ref4 = db.ref("/question/question4");
+    
+
+//     ref1.set([
+// {
+//     id:11,
+//     score:10,
+//     nextid:"question2"
+// },{
+//     id:12,
+//     score:7.5,
+//     nextid:"question2"
+// },{
+//     id:13,
+//     score:5,
+//     nextid:"question3"
+// },{
+//     id:14,
+//     score:1,
+//     nextid:"question4"
+// },]);
+// ref2.set([
+// {
+//     id:11,
+//     score:10,
+//     nextid:"question2"
+// },{
+//     id:12,
+//     score:7.5,
+//     nextid:"question2"
+// },{
+//     id:13,
+//     score:5,
+//     nextid:"question3"
+// },{
+//     id:14,
+//     score:1,
+//     nextid:"question4"
+// },]);
+// ref3.set([
+// {
+//     id:11,
+//     score:10,
+//     nextid:"question2"
+// },{
+//     id:12,
+//     score:7.5,
+//     nextid:"question2"
+// },{
+//     id:13,
+//     score:5,
+//     nextid:"question3"
+// },{
+//     id:14,
+//     score:1,
+//     nextid:"question4"
+// },]);
+// ref4.set([
+// {
+//     id:41,
+//     score:10,
+//     nextid:"question2"
+// },{
+//     id:42,
+//     score:7.5,
+//     nextid:"question2"
+// },{
+//     id:43,
+//     score:5,
+//     nextid:"question3"
+// },{
+//     id:44,
+//     score:1,
+//     nextid:"question4"
+// },]);
+function check(refe){
+    var reftest = db.ref(refe);
+reftest.on("value", function(snapshot) {
+  console.log(snapshot.val());
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});};
+function next(refe){
+    var refofnext = db.ref(refe);
+    refofnext.on("value",function(snapshot){
+        var nextq = snapshot.val();
+        path="/question/"+nextq+"/question";
+        console.log(path);
+        nextquestion=db.ref(path);
+        nextquestion.on("value", function(snapshot) {
+  console.log(snapshot.val())});
+        
+    });
+    
+
+    
+    
+};
+
+
+ </script>   
+</body>
+</html>
